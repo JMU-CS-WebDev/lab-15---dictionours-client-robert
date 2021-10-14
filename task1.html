@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1, lab15</title>
+
+    <style>
+        #box {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        }
+
+        .searchBox {
+        width: 200px;
+        height: 100px;
+        padding: 5px;
+        margin: 5px;
+        box-sizing: border-box;
+        border: 2px solid black;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .returnBox {
+        width: 200px;
+        padding: 5px;
+        margin: 5px;
+        box-sizing: border-box;
+        border: 2px solid black;
+
+        display: inline-block;
+        word-wrap: break-word;
+        /* flex-direction: column; */
+        /* justify-content: center; */
+        align-items: center;
+        }
+
+        .increment-card {
+        background-color: rgb(243, 14, 7);
+        }
+
+        .increment-card:active {
+        background-color: rgb(243, 14, 7);
+        }
+
+        h3 {
+        margin: 0;
+        font-size: 1.3em;
+        }
+
+        #species-box {
+        width: 160px;
+        margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+
+<script>
+    const entry = document.querySelector("#species");
+
+    const searcher = (query) => {
+      fetch("http://localhost:5000/:word")
+        .then(response => response.json())
+    }
+
+
+
+
+    entry.addEventListener("keydown", (ev)=>
+    {
+        if(ev.key == "Enter")
+        {
+          search(searchBox.value);
+        }
+    })
+</script>
+    
+<body>
+
+    <div id="box">
+        <div class="searchBox">
+          <input id="species-box" type="text">
+          <!-- <button id="new-button">search</button> -->
+        </div>
+        <div class ="returnBox">
+            <ol>
+                <li>a spoon is a utensle used for scooping small quantities of food matter </li>
+                <li>fort is a utensil with a simmular function but a different structure</li>
+            </ol>
+            
+            <br><button>New Definition</button>
+        </div>
+      </div>
+    
+
+</body>
+</html>
